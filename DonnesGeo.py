@@ -30,7 +30,7 @@ def  lireDonnesCsv(nomFichier):
         import codecs
         listeDonnees = []
 
-        with open(nomFichier,   'r', encoding="utf-8") as f:
+        with codecs.open(nomFichier,   'r', encoding="utf-8") as f:
             lecteur = csv.reader(f)
             for ligne in lecteur:
                 listeDonnees.append(ligne)
