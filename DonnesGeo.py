@@ -30,8 +30,12 @@ def  lireDonnesCsv(nomFichier):
         import codecs
         listeDonnees = []
 
-        with open(nomFichier,   'r', encoding="utf-8") as f:
+        with codecs.open(nomFichier,   'r', encoding="utf-8") as f:
             lecteur = csv.reader(f)
+            header= csv.Sniffer().has_header(f.read(1024)) # déterminer s'il y a une entête
+            f.seek(0)                                      # pour sauter l'entête
+            if header:
+                next(lecteur)
             for ligne in lecteur:
                 listeDonnees.append(ligne)
             return listeDonnees
@@ -41,5 +45,5 @@ def  lireDonnesCsv(nomFichier):
 Dg = "Paris", "France", "48.8534951", "2.34883915"
 print(Dg)
 listeDonneesGeo = []
-listeDonneesGeo = lireDonnesCsv("C:/Users/LJ Pierre/OneDrive - Collège de Maisonneuve/Bureau/Donnees.csv")
+listeDonneesGeo = lireDonnesCsv("Données.csv")
 print(listeDonneesGeo)
