@@ -45,5 +45,5 @@ def  lireDonnesCsv(nomFichier):
 Dg = "Paris", "France", "48.8534951", "2.34883915"
 print(Dg)
 listeDonneesGeo = []
-listeDonneesGeo = lireDonnesCsv("Données.csv")
+listeDonneesGeo = lireDonnesCsv("Donnees.csv")
 print(listeDonneesGeo)
