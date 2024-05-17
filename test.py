@@ -16,7 +16,7 @@ class DonneesGeo:
 
 def lireDonneesCsv(nomFichier):
     liste_donnees_geo = []
-    with codecs.open(nomFichier,"r",encoding="utf-8") as f:
+    with codecs.open(nomFichier,"r", encoding="utf-8") as f:
         lecteur_csv = csv.reader(f)
         for ligne in lecteur_csv:
             #if len(ligne) == 4:
@@ -36,14 +36,14 @@ def ecrireDonneesJson(nomFichier, listeObjDonneesGeo):
         }
         liste_dictionnaires.append(dictionnaire)
 
-    with open(nomFichier, 'w') as fichier_json:
-        json.dump({'données_geo': liste_dictionnaires}, fichier_json, indent=4)
+    with codecs.open(nomFichier, 'w') as fichier_json:
+        json.dump({'Donnees_geo.json': liste_dictionnaires}, fichier_json, indent=4)
 
 
 
 
 # Lecture des données depuis un fichier CSV
-liste_donnees = lireDonneesCsv("données.csv")
+liste_donnees = lireDonneesCsv("Donnes.csv")
 for donnees_geo in liste_donnees:
     print(donnees_geo)
 
